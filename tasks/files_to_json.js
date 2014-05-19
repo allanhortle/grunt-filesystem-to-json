@@ -21,28 +21,31 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('files_to_json', 'Turns files into json data', function(a, b) {
         var data = {};
 
-        function set(obj, str, val) {
-            str = str.split(".");
-            while (str.length > 1)
-                obj = obj[str.shift()];
-            return obj[str.shift()] = val;
+        function setObject(name, value, context) {
+            var parts = name.split("."), 
+            p = parts.pop();
+            for(var i=0, j; context && (j=parts[i]); i++){
+                context = (j in context ? context[j] : context[j]={});
+            }
+            return context && p ? (context[p]=value) : undefined; // Object
         }
 
         this.files.forEach(function(file) {
+            console.log(file);
             var contents = file.src.filter(function(filepath) {
                 if (grunt.file.isFile(filepath)) {
                     return true;
                 }
                 // console.log(jsoner(depth));                
             }).map(function(filepath) {
+
+                var index = filepath.lastIndexOf("/");
+                var fileName = filepath.substr(index + 1);
+
                 var depth = filepath.split('/');
-                console.log("depth: ",depth);
-                var file = depth[depth.length -1];
-                console.log("file: ",file);
-                depth.pop();
+                var file = depth[depth.length -1];  
                 var dot = depth.join('.');
-                console.log("dot: ",dot);
-                set(data, dot, file);
+                setObject(dot, file, data);
 
             });
             
