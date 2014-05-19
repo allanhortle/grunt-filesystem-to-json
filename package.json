@@ -1,0 +1,41 @@
+{
+  "name": "grunt-files-to-json",
+  "description": "Turns files into json data",
+  "version": "0.1.0",
+  "homepage": "Please answer the follow",
+  "author": {
+    "name": "Allan Hortle",
+    "email": "allanhortle@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Allan/grunt-files-to-json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Allan/grunt-files-to-json/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "Please answer the follow/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
