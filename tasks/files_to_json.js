@@ -31,7 +31,6 @@ module.exports = function(grunt) {
         }
 
         this.files.forEach(function(file) {
-            console.log(file);
             var contents = file.src.filter(function(filepath) {
                 if (grunt.file.isFile(filepath)) {
                     return true;
@@ -42,17 +41,17 @@ module.exports = function(grunt) {
                 var index = filepath.lastIndexOf("/");
                 var fileName = filepath.substr(index + 1);
 
-                var depth = filepath.split('/');
 
-                var file = depth[depth.length -1];  
-                var dot = depth.join('.');
-                setObject(dot, file, data);
+                var path = filepath.split('/').join('.');
+                path = path.substr(0, path.lastIndexOf("."))
+                console.log(path);
+                setObject(path, fileName, data);
             });
+            console.log(JSON.stringify(data))
+            grunt.file.write(file.dest, JSON.stringify(data));
             
-            console.log(data);
-
-            grunt.log.writeln('---');
         });
+
 
     });
 
