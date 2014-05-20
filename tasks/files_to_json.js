@@ -23,8 +23,9 @@ module.exports = function(grunt) {
 
         function set(obj, str, val) {
             str = str.split(".");
-            while (str.length > 1)
+            while (str.length > 2){
                 obj = obj[str.shift()];
+            }
             return obj[str.shift()] = val;
         }
 
@@ -36,13 +37,11 @@ module.exports = function(grunt) {
                 // console.log(jsoner(depth));                
             }).map(function(filepath) {
                 var depth = filepath.split('/');
-                console.log("depth: ",depth);
                 var file = depth[depth.length -1];
-                console.log("file: ",file);
                 depth.pop();
                 var dot = depth.join('.');
-                console.log("dot: ",dot);
                 set(data, dot, file);
+                console.log(data);
 
             });
             
