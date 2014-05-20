@@ -8,23 +8,19 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-    var fs = require("fs"),
-        path = require("path");
+    var frontMatter = require('yaml-front-matter')
 
-
-    // Please see the Grunt documentation for more information regarding task
-    // creation: http://gruntjs.com/creating-tasks
-    
-
-    grunt.registerMultiTask('files_to_json', 'Turns files into json data', function(a, b) {
+    grunt.registerMultiTask('files_to_json', 'Turns files into json data', function (a, b) {
         var data = {};
 
+        var options = this.options();
+
         function setObject(name, value, context) {
-            var parts = name.split("."), 
-            p = parts.pop();
-            for(var i=0, j; context && (j=parts[i]); i++){
+            var parts = name.split("."),
+                p = parts.pop();
+            for (var i=0, j; context && (j=parts[i]); i++){
                 context = (j in context ? context[j] : context[j]={});
             }
             return context && p ? (context[p]=value) : undefined; // Object
@@ -40,14 +36,17 @@ module.exports = function(grunt) {
 
                 var index = filepath.lastIndexOf("/");
                 var fileName = filepath.substr(index + 1);
+                var content = frontMatter.loadFront(filepath);
+
+                console.log(content);
 
 
                 var path = filepath.split('/').join('.');
                 path = path.substr(0, path.lastIndexOf("."))
-                console.log(path);
-                setObject(path, fileName, data);
+                // console.log(path);
+                setObject(path, content, data);
             });
-            console.log(JSON.stringify(data))
+            // console.log(JSON.stringify(data))
             grunt.file.write(file.dest, JSON.stringify(data));
             
         });
