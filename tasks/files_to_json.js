@@ -10,7 +10,7 @@
 
 module.exports = function (grunt) {
 
-    var frontMatter = require('yaml-front-matter')
+    var frontMatter = require('yaml-front-matter');
 
     grunt.registerMultiTask('files_to_json', 'Turns files into json data', function (a, b) {
         var data = {};
@@ -30,25 +30,17 @@ module.exports = function (grunt) {
             var contents = file.src.filter(function(filepath) {
                 if (grunt.file.isFile(filepath)) {
                     return true;
-                }
-                // console.log(jsoner(depth));                
+                }       
             }).map(function(filepath) {
 
                 var index = filepath.lastIndexOf("/");
                 var fileName = filepath.substr(index + 1);
                 var content = frontMatter.loadFront(filepath);
-
-                console.log(content);
-
-
                 var path = filepath.split('/').join('.');
-                path = path.substr(0, path.lastIndexOf("."))
-                // console.log(path);
+                path = path.substr(0, path.lastIndexOf("."));
                 setObject(path, content, data);
             });
-            // console.log(JSON.stringify(data))
-            grunt.file.write(file.dest, JSON.stringify(data));
-            
+            grunt.file.write(file.dest, JSON.stringify(data));            
         });
 
 
