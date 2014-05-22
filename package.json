@@ -2,17 +2,17 @@
   "name": "grunt-files-to-json",
   "description": "Turns files into json data",
   "version": "0.1.0",
-  "homepage": "Please answer the follow",
+  "homepage": "http://github.com/allanhortle",
   "author": {
     "name": "Allan Hortle",
     "email": "allanhortle@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Allan/grunt-files-to-json.git"
+    "url": "git://github.com/allanhortle/grunt-files-to-json.git"
   },
   "bugs": {
-    "url": "https://github.com/Allan/grunt-files-to-json/issues"
+    "url": "https://github.com/allanhortle/grunt-files-to-json/issues"
   },
   "licenses": [
     {
