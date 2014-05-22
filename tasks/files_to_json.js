@@ -1,6 +1,5 @@
 /*
  * grunt-files-to-json
- * Please answer the follow
  *
  * Copyright (c) 2014 Allan Hortle
  * Licensed under the MIT license.
