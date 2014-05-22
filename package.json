@@ -1,7 +1,7 @@
 {
   "name": "grunt-files-to-json",
   "description": "Turns files into json data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "http://github.com/allanhortle",
   "author": {
     "name": "Allan Hortle",
@@ -42,5 +42,3 @@
     "yaml-front-matter": "^3.0.1"
   }
 }
-
-
