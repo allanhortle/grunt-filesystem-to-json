@@ -31,15 +31,17 @@ module.exports = function (grunt) {
                     return true;
                 }       
             }).map(function(filepath) {
-
                 var index = filepath.lastIndexOf("/");
                 var fileName = filepath.substr(index + 1);
-                var content = frontMatter.loadFront(filepath);
                 var path = filepath.split('/').join('.');
                 path = path.substr(0, path.lastIndexOf("."));
-                setObject(path, content, data);
+                if(frontMatter.loadFront(filepath)){
+                    setObject(path, 'rad', data);
+                }else{
+                    console.log('error!');
+                }
+                
             });
-            console.log(file.dest);
             grunt.file.write(file.dest, JSON.stringify(data));            
         });
 

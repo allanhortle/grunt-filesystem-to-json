@@ -1,5 +1,5 @@
 {
-  "name": "grunt-files-to-json",
+  "name": "grunt-filesystem-to-json",
   "description": "Turns files into json data",
   "version": "0.1.1",
   "homepage": "http://github.com/allanhortle",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/allanhortle/grunt-files-to-json.git"
+    "url": "git://github.com/allanhortle/grunt-filesystem-to-json.git"
   },
   "bugs": {
-    "url": "https://github.com/allanhortle/grunt-files-to-json/issues"
+    "url": "https://github.com/allanhortle/grunt-filesystem-to-json/issues"
   },
   "licenses": [
     {
