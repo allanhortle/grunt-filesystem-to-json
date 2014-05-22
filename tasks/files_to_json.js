@@ -42,6 +42,7 @@ module.exports = function (grunt) {
                 }
                 
             });
+            // this is a test
             grunt.file.write(file.dest, JSON.stringify(data));            
         });
 
