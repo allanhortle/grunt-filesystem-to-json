@@ -33,7 +33,7 @@ module.exports = function (grunt) {
                 options: {
                 },
                 files: {
-                    'tmp/data.json': ['test/app_data/**/*']
+                    'test/data.json': ['test/app_data/**/*']
                 }
             }
         },

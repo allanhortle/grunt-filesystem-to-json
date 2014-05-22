@@ -39,6 +39,7 @@ module.exports = function (grunt) {
                 path = path.substr(0, path.lastIndexOf("."));
                 setObject(path, content, data);
             });
+            console.log(file.dest);
             grunt.file.write(file.dest, JSON.stringify(data));            
         });
 
