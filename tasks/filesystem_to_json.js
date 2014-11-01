@@ -38,7 +38,7 @@ module.exports = function (grunt) {
 
                 try {
                     setObject(path, frontMatter.loadFront(filepath), data);
-                    grunt.verbose.ok(filepath);
+                    grunt.log.ok(filepath);
                 } catch(e) {
                     grunt.log.error(filepath);
                     grunt.fail.warn(e);
@@ -46,9 +46,8 @@ module.exports = function (grunt) {
 
                 
             });
-            // this is a test
-            console.log(data);
-            grunt.file.write(file.dest, JSON.stringify(data));            
+
+            grunt.file.write(file.dest, JSON.stringify(data));
         });
 
 
