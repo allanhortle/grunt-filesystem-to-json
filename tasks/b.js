@@ -11,7 +11,7 @@ module.exports = function (grunt) {
 
     var frontMatter = require('yaml-front-matter');
 
-    grunt.registerMultiTask('filesystem_to_json', 'Turns files into json data', function (a, b) {
+    grunt.registerMultiTask('files_to_json', 'Turns files into json data', function (a, b) {
         var data = {};
 
         var options = this.options();
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                 var path = filepath.split('/').join('.');
                 path = path.substr(0, path.lastIndexOf("."));
                 if(frontMatter.loadFront(filepath)){
-                    setObject(path, frontMatter.loadFront(filepath), data);
+                    setObject(path, 'rad', data);
                 }else{
                     console.log('error!');
                 }
