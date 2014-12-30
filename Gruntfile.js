@@ -29,11 +29,17 @@ module.exports = function (grunt) {
 
         // Configuration to be run (and then tested).
         filesystem_to_json: {
-            default_options: {
-                options: {
-                },
+            default_options: {                
                 files: {
                     'test/data.json': ['test/app_data/**/*']
+                }
+            },
+            jsx: {
+                options: {
+                    parser: 'jsx'
+                },
+                files: {
+                    'test/jsxData.json': ['test/jsx/**/*']
                 }
             }
         },

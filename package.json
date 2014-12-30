@@ -39,6 +39,7 @@
     "gruntplugin"
   ],
   "dependencies": {
+    "lodash": "^2.4.1",
     "yaml-front-matter": "^3.0.1"
   }
 }

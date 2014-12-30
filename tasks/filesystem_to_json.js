@@ -7,23 +7,23 @@
 
 'use strict';
 
-module.exports = function (grunt) {
+var Utils = require('./utils');
+var Parse = require('./parse');
+var _ = require('lodash');
 
-    var frontMatter = require('yaml-front-matter');
+
+
+var defaultOptions = {
+    parser: 'yaml',
+    flatten: false
+}
+
+module.exports = function (grunt) {    
 
     grunt.registerMultiTask('filesystem_to_json', 'Turns files into json data', function (a, b) {
         var data = {};
 
-        var options = this.options();
-
-        function setObject(name, value, context) {
-            var parts = name.split("."),
-                p = parts.pop();
-            for (var i=0, j; context && (j=parts[i]); i++){
-                context = (j in context ? context[j] : context[j]={});
-            }
-            return context && p ? (context[p]=value) : undefined; // Object
-        }
+        var options = _.defaults(this.options(), defaultOptions);
 
         this.files.forEach(function(file) {
             var contents = file.src.filter(function(filepath) {
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                 path = path.substr(0, path.lastIndexOf("."));
 
                 try {
-                    setObject(path, frontMatter.loadFront(filepath), data);
+                    Utils.setObject(path, Parse.file(options.parser, filepath), data);
                     grunt.log.ok(filepath);
                 } catch(e) {
                     grunt.log.error(filepath);
