@@ -1,1 +1,1 @@
-{"test":{"jsx":{"components":{"ComponentA":"test/jsx/components/ComponentA.jsx"}}}}
+{"test":{"jsx":{"components":{"ComponentA":"/** @jsx React.DOM */\nvar React = require('react');\n\nvar ComponentA = React.createClass({\n    displayName: 'ComponentA',\n    propTypes: {\n    \tpropA: React.PropTypes.string.isRequired,\n    \tpropB: React.PropTypes.number,\n    \tpropC: React.PropTypes.bool\n    },\n    render: function () {\n        return (\n            <div>ComponentA</div>\n        );\n    }\n});\n\nmodule.exports = ComponentA;"}}}}

@@ -6,6 +6,12 @@ var utils = {
             context = (j in context ? context[j] : context[j]={});
         }
         return context && p ? (context[p]=value) : undefined; // Object
+    },
+    requireFromString: function(src, filename) {
+        var Module = module.constructor;
+        var m = new Module();
+        m._compile(src, filename);
+        return m.exports;
     }
 }
 
