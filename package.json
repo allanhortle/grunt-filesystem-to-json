@@ -1,7 +1,7 @@
 {
   "name": "grunt-filesystem-to-json",
   "description": "Turns files into json data",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "http://github.com/allanhortle",
   "author": {
     "name": "Allan Hortle",
